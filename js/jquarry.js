@@ -8,7 +8,7 @@ Game.launch = function() {
 
     // choose a random subtitle for the page
     var subs = [
-    'The #1 Javascript-Powered Web Technology Mining Game!'];
+    'The #1 Javascript-Powered Web Technology Selection Game!'];
     Game.subtitle = subs[Math.floor(Math.random() * subs.length)];
 
 };
