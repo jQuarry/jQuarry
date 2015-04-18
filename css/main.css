@@ -152,7 +152,10 @@ textarea {
     margin-top: 20px;
 }
 
-
+td {
+    vertical-align: center;
+    text-align: center;
+}
 
 
 
