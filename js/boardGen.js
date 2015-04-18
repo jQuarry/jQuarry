@@ -43,9 +43,10 @@ $('#mybutton69').on('click', function() {
 	for ( var i = 0 ; i < n ; i++ ) {
 		place.append("<td>"+goodies_on_column[i]+"</td>");
 	}
+
+	$('.img').on("click", function() {
+		console.log("kush");
+	});
 });
 
-$('.img').on("click", function() {
-	console.log("kush");
-});
 
