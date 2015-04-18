@@ -2,9 +2,11 @@
 goodies = ["asp.png", "django.png", "jquery.gif", "php.jpg",
 	"ruby-on-rails.png", "node-js.js.js.png", "javascript-logo.png",
 	"html5.png", "css3.png"];
-baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"]
+baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"];
 
-$('#mybutton69').on('click', function genBoard() {
+cell = [];
+
+$('#mybutton69').on('click', function() {
 	var n = 4;
 	var place = $("#board");
 	place.empty();
@@ -22,14 +24,16 @@ $('#mybutton69').on('click', function genBoard() {
 			var good_or_bad_square = Math.floor(Math.random() * 10);
 			if ( good_or_bad_square > 3 ){
 				var rand = Math.floor(Math.random() * goodies.length);
-				row.append("<td><img src='img/mineCRAFT.png' width=150 height=150/></td>");
+				row.append("<td><img class='img' src='img/mineCRAFT.png' width=150 height=150/></td>");
 				//row.append("<td><img src='img/" + goodies[rand] +"' width=150 height=150/></td>");
 				goodies_this_row++;
 				goodies_on_column[j] = goodies_on_column[j]+1;
+				cell.push([i, j, 1, rand]);
 			} else {
 				var rand = Math.floor(Math.random() * baddies.length);
-				row.append("<td><img src='img/mineCRAFT.png' width=150 height=150/></td>");
+				row.append("<td><img class='img' src='img/mineCRAFT.png' width=150 height=150/></td>");
 				//row.append("<td><img src='img/" + baddies[rand] +"' width=150 height=150/></td>");
+				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
 				row.append("<td>"+goodies_this_row+"</td>");
@@ -39,5 +43,9 @@ $('#mybutton69').on('click', function genBoard() {
 	for ( var i = 0 ; i < n ; i++ ) {
 		place.append("<td>"+goodies_on_column[i]+"</td>");
 	}
+});
+
+$('.img').on('click', function() {
+	console.log("click"); 
 });
 
