@@ -24,14 +24,14 @@ $('#mybutton69').on('click', function() {
 			var good_or_bad_square = Math.floor(Math.random() * 10);
 			if ( good_or_bad_square > 3 ){
 				var rand = Math.floor(Math.random() * goodies.length);
-				row.append("<td><img class='img' src='img/mineCRAFT.png' width=150 height=150/></td>");
+				row.append("<td><img class='img' id='"+(i*n+j)+"' src='img/mineCRAFT.png' width=150 height=150/></td>");
 				//row.append("<td><img src='img/" + goodies[rand] +"' width=150 height=150/></td>");
 				goodies_this_row++;
 				goodies_on_column[j] = goodies_on_column[j]+1;
 				cell.push([i, j, 1, rand]);
 			} else {
 				var rand = Math.floor(Math.random() * baddies.length);
-				row.append("<td><img class='img' src='img/mineCRAFT.png' width=150 height=150/></td>");
+				row.append("<td><img class='img' id='"+(i*n+j)+"' src='img/mineCRAFT.png' width=150 height=150/></td>");
 				//row.append("<td><img src='img/" + baddies[rand] +"' width=150 height=150/></td>");
 				cell.push([i, j, 0, rand]);
 			}
@@ -45,7 +45,7 @@ $('#mybutton69').on('click', function() {
 	}
 });
 
-$('.img').on('click', function() {
-	console.log("click"); 
+$('.img').on("click", function() {
+	console.log("kush");
 });
 
