@@ -1,7 +1,7 @@
 
 (function genBoard(n) {
 	var place = $("#board");
-	place.append('<table id="boardtable" border="1"></table>');
+	place.append('<table id="boardtable" border="1" stlye="align: center;"></table>');
 	place = $('#boardtable');
 	for(var i = 0; i < n; i++) {
 		var row = $("<tr></tr>");
