@@ -1,6 +1,6 @@
 
-imgs = ["404.jpg", "asp.png", "computer-hacker.jpg", "django.png", "doge.png",
-		"jquery.gif", "php.jpg", "ruby-on-rails.png"];
+goodies = ["asp.png", "django.png", "jquery.gif", "php.jpg", "ruby-on-rails.png"];
+baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"]
 
 $('#mybutton69').on('click', function genBoard() {
 	var n = 4;
@@ -12,8 +12,16 @@ $('#mybutton69').on('click', function genBoard() {
 		var row = $("<tr></tr>");
 		place.append(row);
 		for(var j = 0; j < n; j++) {
-			var rand = Math.floor(Math.random() * 7);
-			row.append("<td><img src='img/" + imgs[rand] +"' width=200 height=200/></td>");
+			var good_or_bad_square = Math.floor(Math.random() * 10);
+			if ( good_or_bad_square > 3 ){
+				var rand = Math.floor(Math.random() * goodies.length);
+				row.append("<td><img src='img/" + goodies[rand] +"' width=200 height=200/></td>");
+
+			} else {
+				var rand = Math.floor(Math.random() * baddies.length);
+				row.append("<td><img src='img/" + baddies[rand] +"' width=200 height=200/></td>");
+			}
+			
 		}
 	}
 });
