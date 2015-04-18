@@ -97,6 +97,15 @@ textarea {
 
 #centered-header {
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#subtitle {
+    text-align: center;
+    font-size: 1em;
+    
+
 }
 
 #buttons {
