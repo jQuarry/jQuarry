@@ -1,6 +1,6 @@
 
 goodies = ["asp.png", "django.png", "jquery.gif", "php.png",
-	"ruby-on-rails.png", "node-js.js.js.png", "javascript-logo.png",
+	"ruby-on-rails.png", "node-js.png", "javascript-logo.png",
 	"html5.png", "css3.png"];
 baddies = ["404.jpg", "computer-hacker.png", "doge.png", "nyan.png"];
 
