@@ -2,7 +2,7 @@
 goodies = ["asp.png", "django.png", "jquery.gif", "php.jpg",
 	"ruby-on-rails.png", "node-js.js.js.png", "javascript-logo.png",
 	"html5.png", "css3.png"];
-baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"];
+baddies = ["404.jpg", "computer-hacker.jpg", "doge.png", "nyan.png"];
 
 cell = [];
 
@@ -48,7 +48,7 @@ $('#mybutton69').on('click', function() {
 				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
-				row.append("<td>"+goodies_this_row+"</td>");
+				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_this_row+"<br>"+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
 			}
 		}
 	}
