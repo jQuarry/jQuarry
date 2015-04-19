@@ -7,10 +7,10 @@ baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"];
 cell = [];
 
 $(goodies).each(function() {
-	$('<img/>')[0].src = this;
+	$('<img/>')[0].src = 'img/' + this;
 });
 $(baddies).each(function() {
-	$('<img/>')[0].src = this;
+	$('<img/>')[0].src = 'img/' + this;
 });
 
 $('#mybutton69').on('click', function() {
@@ -52,7 +52,7 @@ $('#mybutton69').on('click', function() {
 	}
 
 	$('.img').on("click", function() {
-		$(this).attr('src', cell[this.id][2]?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]);
+		$(this).attr('src', 'img/' + cell[this.id][2]?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]);
 	});
 });
 
