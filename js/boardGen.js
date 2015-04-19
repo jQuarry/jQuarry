@@ -22,6 +22,10 @@ $(baddies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
 
+function reminderMode() {
+	
+}
+
 function createBoard() {
 	$('#level').text(level);
 	$('#points').text(points);
@@ -48,7 +52,6 @@ function createBoard() {
 			if ( good_or_bad_square > 3 ){
 				var rand = Math.floor(Math.random() * goodies.length);
 				row.append("<td><img class='img' id='"+(i*n+j)+"' src='img/mineCRAFT.png' width=150 height=150/></td>");
-				//row.append("<td><img src='img/" + goodies[rand] +"' width=150 height=150/></td>");
 				goodies_this_row++;
 				goodies_on_column[j] = goodies_on_column[j]+1;
 				numGoodies++;
@@ -56,7 +59,6 @@ function createBoard() {
 			} else {
 				var rand = Math.floor(Math.random() * baddies.length);
 				row.append("<td><img class='img' id='"+(i*n+j)+"' src='img/mineCRAFT.png' width=150 height=150/></td>");
-				//row.append("<td><img src='img/" + baddies[rand] +"' width=150 height=150/></td>");
 				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
