@@ -52,7 +52,7 @@ $('#mybutton69').on('click', function() {
 	}
 
 	$('.img').on("click", function() {
-		$(this).attr('src', 'img/' + (cell[this.id][2]?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
+		$(this).attr('src', 'img/' + (cell[this.id][2] == 1 ? goodies[cell[this.id][3]] : baddies[cell[this.id][3]]));
 	});
 });
 
