@@ -24,7 +24,11 @@ $('#mybutton69').on('click', function() {
 	numGoodies=0;
 	goodFound=0;
 	$('#status').text('');
-	var n = 4;
+	if ( document.getElementById("gio").value == null || document.getElementById("gio").value == 0 ) {
+		var n = 4;
+	} else {
+		var n = document.getElementById("gio").value;
+	}
 	var place = $("#board");
 	place.empty();
 	place.append('<table id="boardtable" border="1"></table>');
@@ -77,6 +81,7 @@ $('#mybutton69').on('click', function() {
 					done=true;
 					$('#status').text('You Win!');
 					$('#status').css('color', 'green');
+					new Audio('assets/applause.mp3').play();
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
