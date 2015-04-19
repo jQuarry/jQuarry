@@ -63,6 +63,7 @@ $('#mybutton69').on('click', function() {
 				done=true;
 				$('#status').text('Game over');
 				$('#status').css('color', 'red');
+				new Audio('assets/doh.mp3').play();
 			}
 		}
 	});
