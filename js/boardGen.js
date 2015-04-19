@@ -74,6 +74,7 @@ function createBoard() {
 	for ( var i = 0 ; i < n ; i++ ) {
 		place.append("<td>"+values_on_column[i]+"<br/><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
 	}
+	place.append("<td></td>");
 
 	$('.img').on("click", function() {
 		if(!done) {
