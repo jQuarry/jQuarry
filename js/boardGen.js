@@ -6,6 +6,8 @@ baddies = ["404.jpg", "computer-hacker.jpg", "doge.png"];
 
 cell = [];
 
+done = false;
+
 $(goodies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
@@ -14,6 +16,9 @@ $(baddies).each(function() {
 });
 
 $('#mybutton69').on('click', function() {
+	done = false;
+	cell = [];
+	$('#status').text('');
 	var n = 4;
 	var place = $("#board");
 	place.empty();
@@ -52,7 +57,14 @@ $('#mybutton69').on('click', function() {
 	}
 
 	$('.img').on("click", function() {
-		$(this).attr('src', 'img/' + (cell[this.id][2] == 1 ? goodies[cell[this.id][3]] : baddies[cell[this.id][3]]));
+		if(!done) {
+			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
+			if(cell[this.id][2] == 0) {
+				done=true;
+				$('#status').text('Game over');
+				$('#status').css('color', 'red');
+			}
+		}
 	});
 });
 
