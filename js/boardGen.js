@@ -22,9 +22,6 @@ $(baddies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
 
-function createLevel() {
-}
-
 $('#mybutton69').on('click', function() {
 	points=0;
 	level=1;
@@ -89,7 +86,7 @@ $('#mybutton69').on('click', function() {
 				if($(this).attr('src') == 'img/mineCRAFT.png') {
 					goodFound++;
 					points += values[cell[this.id][3]];
-					$('#point').text(points);
+					$('#points').text(points);
 				}
 				if(goodFound == numGoodies) {
 					done=true;
