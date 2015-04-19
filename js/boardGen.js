@@ -95,7 +95,6 @@ $('#mybutton69').on('click', function() {
 					level++;
 					$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
 					new Audio('assets/applause.mp3').play();
-					createLevel();
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
