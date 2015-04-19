@@ -3,6 +3,7 @@ goodies = ["asp.png", "django.png", "jquery.gif", "php.png",
 	"ruby-on-rails.png", "node-js.png", "javascript-logo.png",
 	"html5.png", "css3.png"];
 baddies = ["404.jpg", "computer-hacker.png", "doge.png", "nyan.png"];
+values = [1, 1, 4, 1, 3, 1, 3, 2, 2];
 
 cell = [];
 
@@ -11,6 +12,9 @@ done = false;
 numGoodies = 0;
 goodFound = 0;
 
+points = 0;
+level = 1;
+
 $(goodies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
@@ -18,13 +22,21 @@ $(baddies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
 
+function createLevel() {
+}
+
 $('#mybutton69').on('click', function() {
+	points=0;
+	level=1;
+
+	$('#level').text(level);
+	$('#points').text(points);
 	done = false;
 	cell = [];
 	numGoodies=0;
 	goodFound=0;
 	$('#status').text('');
-	var n = 4;
+	var n = 4+level-1;
 	var place = $("#board");
 	place.empty();
 	place.append('<table id="boardtable" border="1"></table>');
@@ -72,11 +84,15 @@ $('#mybutton69').on('click', function() {
 			} else {
 				if($(this).attr('src') == 'img/mineCRAFT.png') {
 					goodFound++;
+					points += values[cell[this.id][3]];
+					$('#point').text(points);
 				}
 				if(goodFound == numGoodies) {
 					done=true;
 					$('#status').text('You Win!');
 					$('#status').css('color', 'green');
+					level++;
+					createLevel();
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
