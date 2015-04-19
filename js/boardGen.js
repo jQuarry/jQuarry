@@ -67,12 +67,12 @@ function createBoard() {
 				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
-				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+value_this_row+"<br><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
+				row.append("<td>"+value_this_row+"<br/><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
 			}
 		}
 	}
 	for ( var i = 0 ; i < n ; i++ ) {
-		place.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+values_on_column[i]+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
+		place.append("<td>"+values_on_column[i]+"<br/><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
 	}
 
 	$('.img').on("click", function() {
