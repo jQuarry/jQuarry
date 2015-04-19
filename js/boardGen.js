@@ -100,6 +100,9 @@ function createBoard() {
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
+			if ( cell[this.id][2]==1 ) {
+				$(this).attr('title', values[cell[this.id][3]]);
+			}
 			if(win) {
 				setTimeout(function(){
 					createBoard();
