@@ -3,7 +3,7 @@ A product of :heart: by the jQuarry team for #BrickHack2015.
 
 Play the Game
 =============
-Download a release [here](https://github.com/jQuarry/jQuarry/releases/tag/dakota). Unzip all the files into a location of your choosing.
+Download a release [here](https://github.com/jQuarry/jQuarry/releases). Unzip all the files into a location of your choosing.
 
 Then, to access the game, point a (GUI-based) web browser of your choosing to `file:///your/path/here/jQuarry/index.html`.
 
