@@ -36,13 +36,16 @@ function createBoard() {
 	place.append('<table id="boardtable" border="1"></table>');
 	place = $('#boardtable');
 	goodies_on_column = [];
+	values_on_column = [];
 	for ( var i = 0; i < n ; i++ ) {
 		goodies_on_column[i] = 0;
+		values_on_column[i] = 0;
 	}
 	for(var i = 0; i < n; i++) {
 		var row = $("<tr></tr>");
 		place.append(row);
 		var goodies_this_row = 0;
+		var value_this_row = 0;
 		for(var j = 0; j < n; j++) {
 			var good_or_bad_square = Math.floor(Math.random() * 10);
 			if ( good_or_bad_square > 3 ){
@@ -50,7 +53,9 @@ function createBoard() {
 				row.append("<td><img class='img' id='"+(i*n+j)+"' src='img/mineCRAFT.png' width=150 height=150/></td>");
 				//row.append("<td><img src='img/" + goodies[rand] +"' width=150 height=150/></td>");
 				goodies_this_row++;
+				value_this_row += values[rand];
 				goodies_on_column[j] = goodies_on_column[j]+1;
+				values_on_column[j] += values[rand];
 				numGoodies++;
 				cell.push([i, j, 1, rand]);
 			} else {
@@ -60,12 +65,12 @@ function createBoard() {
 				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
-				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_this_row+"<br><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
+				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+value_this_row+"<br><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
 			}
 		}
 	}
 	for ( var i = 0 ; i < n ; i++ ) {
-		place.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_on_column[i]+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
+		place.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+values_on_column[i]+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
 	}
 
 	$('.img').on("click", function() {
