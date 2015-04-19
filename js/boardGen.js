@@ -22,10 +22,6 @@ $(baddies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
 
-function reminderMode() {
-	
-}
-
 function createBoard() {
 	$('#level').text(level);
 	$('#points').text(points);
@@ -101,7 +97,7 @@ function createBoard() {
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
-			if ( cell[this.id][2]==1 ) {
+			if ( cell[this.id][2] == 1 ) {
 				$(this).attr('title', values[cell[this.id][3]]);
 			}
 			if(win) {
@@ -114,10 +110,13 @@ function createBoard() {
 }
 
 $('#mybutton69').on('click', function() {
-	points=0;
-	level=1;
-
-	createBoard();
+	if ( confirm('Restart the game? You will lose all levels and points.') ) {
+		points=0;
+		level=1; // reset level because you reset
+		createBoard();
+	} else {
+		console.log("Game restart cancelled");
+	}
 });
 
 function sleep(milliseconds) { // lmao
@@ -128,4 +127,10 @@ function sleep(milliseconds) { // lmao
     }
   }
 }
+
+// on load
+window.onload = function() {
+	createBoard();
+};
+
 
