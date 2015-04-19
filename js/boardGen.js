@@ -101,7 +101,9 @@ function createBoard() {
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
 			if(win) {
-				createBoard();
+				setTimeout(function(){
+					createBoard();
+				}, 8000);
 			}
 		}
 	});
@@ -114,4 +116,12 @@ $('#mybutton69').on('click', function() {
 	createBoard();
 });
 
+function sleep(milliseconds) { // lmao
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
