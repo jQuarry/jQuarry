@@ -8,6 +8,9 @@ cell = [];
 
 done = false;
 
+numGoodies = 0;
+goodFound = 0;
+
 $(goodies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
@@ -18,6 +21,8 @@ $(baddies).each(function() {
 $('#mybutton69').on('click', function() {
 	done = false;
 	cell = [];
+	numGoodies=0;
+	goodFound=0;
 	$('#status').text('');
 	var n = 4;
 	var place = $("#board");
@@ -40,6 +45,7 @@ $('#mybutton69').on('click', function() {
 				//row.append("<td><img src='img/" + goodies[rand] +"' width=150 height=150/></td>");
 				goodies_this_row++;
 				goodies_on_column[j] = goodies_on_column[j]+1;
+				numGoodies++;
 				cell.push([i, j, 1, rand]);
 			} else {
 				var rand = Math.floor(Math.random() * baddies.length);
@@ -48,22 +54,31 @@ $('#mybutton69').on('click', function() {
 				cell.push([i, j, 0, rand]);
 			}
 			if ( j == n-1 ) {
-				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_this_row+"<br>"+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
+				row.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_this_row+"<br><img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_this_row)+"</td>");
 			}
 		}
 	}
 	for ( var i = 0 ; i < n ; i++ ) {
-		place.append("<td>"+goodies_on_column[i]+"</td>");
+		place.append("<td><img class='img' src='img/good.png' width=25 height=25/>"+goodies_on_column[i]+"<img class='img' src='img/stop.png' width=25 height=25/>"+(n-goodies_on_column[i])+"</td>");
 	}
 
 	$('.img').on("click", function() {
 		if(!done) {
-			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
 			if(cell[this.id][2] == 0) {
 				done=true;
 				$('#status').text('Game over');
 				$('#status').css('color', 'red');
+			} else {
+				if($(this).attr('src') == 'img/mineCRAFT.png') {
+					goodFound++;
+				}
+				if(goodFound == numGoodies) {
+					done=true;
+					$('#status').text('You Win!');
+					$('#status').css('color', 'green');
+				}
 			}
+			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
 		}
 	});
 });
