@@ -3,7 +3,7 @@ goodies = ["asp.png", "django.png", "jquery.gif", "php.png",
 	"ruby-on-rails.png", "node-js.png", "javascript-logo.png",
 	"html5.png", "css3.png"];
 baddies = ["404.jpg", "computer-hacker.png", "doge.png", "nyan.png", "wah.png"];
-values = [1, 1, 4, 1, 3, 1, 3, 2, 2];
+values = [1, 1, 4, 1, 3, 2, 3, 2, 2];
 
 cell = [];
 
@@ -22,10 +22,7 @@ $(baddies).each(function() {
 	$('<img/>')[0].src = 'img/' + this;
 });
 
-$('#mybutton69').on('click', function() {
-	points=0;
-	level=1;
-
+function createBoard() {
 	$('#level').text(level);
 	$('#points').text(points);
 	done = false;
@@ -33,11 +30,7 @@ $('#mybutton69').on('click', function() {
 	numGoodies=0;
 	goodFound=0;
 	$('#status').text('');
-	if ( document.getElementById("gio").value == null || document.getElementById("gio").value == 0 ) {
-		var n = 4;
-	} else {
-		var n = document.getElementById("gio").value;
-	}
+	var n = 4+level-1;
 	var place = $("#board");
 	place.empty();
 	place.append('<table id="boardtable" border="1"></table>');
@@ -77,6 +70,7 @@ $('#mybutton69').on('click', function() {
 
 	$('.img').on("click", function() {
 		if(!done) {
+			var win = false;
 			if(cell[this.id][2] == 0) {
 				done=true;
 				$('#status').text('Game over');
@@ -95,11 +89,22 @@ $('#mybutton69').on('click', function() {
 					level++;
 					$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
 					new Audio('assets/applause.mp3').play();
+					win = true;
 				}
 			}
 			$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
+			if(win) {
+				createBoard();
+			}
 		}
 	});
+}
+
+$('#mybutton69').on('click', function() {
+	points=0;
+	level=1;
+
+	createBoard();
 });
 
 
