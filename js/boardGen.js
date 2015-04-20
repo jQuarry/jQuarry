@@ -79,7 +79,6 @@ function createBoard() {
 				done=true;
 				$('#status').text('Game over');
 				$('#status').css('color', 'red');
-				new Audio('assets/doh.mp3').play();
 			} else {
 				if($(this).attr('src') == 'img/mineCRAFT.png') {
 					goodFound++;
@@ -92,7 +91,6 @@ function createBoard() {
 					$('#status').css('color', 'green');
 					level++;
 					$(this).attr('src', 'img/' + (cell[this.id][2]==1?goodies[cell[this.id][3]]:baddies[cell[this.id][3]]));
-					new Audio('assets/applause.mp3').play();
 					win = true;
 				}
 			}
