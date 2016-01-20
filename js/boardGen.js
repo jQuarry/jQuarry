@@ -74,6 +74,7 @@ function createBoard() {
 
 	$('.img').on("click", function() {
 		if(!done) {
+            $('#status').fadeOut(0);
 			var win = false;
 			if(cell[this.id][2] == 0) {
 				done=true;
@@ -83,7 +84,23 @@ function createBoard() {
 				if($(this).attr('src') == 'img/mineCRAFT.png') {
 					goodFound++;
 					points += values[cell[this.id][3]];
+                    $('#status').fadeIn(1000);
+                    $('#status').text('Goodie found! +' + values[cell[this.id][3]]);
+                    $('#status').fadeOut(1000);
 					$('#points').text(points);
+                    $('#points').fadeOut(function() {
+                        $(this).css('color', 'green');
+                    }).fadeIn();
+                    $('#points').fadeOut(function() {
+                        $(this).css('color', 'black');
+                    }).fadeIn();
+                    /*
+                    $('#points').fadeTo(400, 0, function () {
+                        $(this).css('color', 'green');
+                        $(this).delay(600);
+                        $(this).fadeTo(600, 1);
+                    });
+                    */
 				}
 				if(goodFound == numGoodies) {
 					done=true;
